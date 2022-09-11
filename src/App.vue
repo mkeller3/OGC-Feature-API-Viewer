@@ -6,24 +6,7 @@
       dark
     >
       <div class="d-flex align-center">
-        <!-- <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        /> -->
-        OGC Feature API Viewer
+        <a href="/OGC-Feature-API-Viewer/" style="color: white; text-decoration: none;">OGC Feature API Viewer</a>
       </div>
 
       <v-spacer></v-spacer>
