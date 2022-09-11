@@ -40,6 +40,17 @@
         </v-row>        
       </v-col>
     </v-row>
+    <v-row v-else>
+      <v-progress-circular
+      :size="300"
+      :width="7"
+      color="secondary"
+      indeterminate
+      class="mx-auto mt-10"
+      >
+        Loading...
+      </v-progress-circular>
+    </v-row>
   </v-container>
 </template>
 
