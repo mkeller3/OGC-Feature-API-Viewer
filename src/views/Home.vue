@@ -25,7 +25,7 @@
         <v-card>
             <v-card-title>Reset</v-card-title>
             <v-card-actions>
-              <a class="link-btn" @click="reset">Click to restart demo</a>
+              <a class="link-btn" @click="reset">Click to restart</a>
             </v-card-actions>
         </v-card>
       </v-col>
