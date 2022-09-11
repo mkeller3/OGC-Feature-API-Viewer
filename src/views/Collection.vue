@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <v-alert
+      v-if="error"
+      type="error"
+    >
+      {{error}}
+    </v-alert>
     <v-row v-if="loaded">
       <v-col cols="12" class="mx-0 my-0" style="background-color: #e2d4b7">
         <a class="header-link" href="/OGC-Feature-API-Viewer/">Home</a> /
@@ -59,7 +65,8 @@ export default {
     featureApiData: JSON.parse(localStorage.getItem('featureApiData')),
     loaded: false,
     collectionUrl: undefined,
-    collection: {}
+    collection: {},
+    error: ''
 }),
   mounted() {
     const that = this;
@@ -74,7 +81,7 @@ export default {
       that.collection = response.data
     })
     .catch(function (error) {
-      console.log(error);
+      that.error = error
     });
     
   },

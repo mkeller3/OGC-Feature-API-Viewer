@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <v-alert
+      v-if="error"
+      type="error"
+    >
+      {{error}}
+    </v-alert>
     <v-row v-if="apiUrl && loaded">
       <v-col cols="12" class="mx-0 my-0" style="background-color: #e2d4b7">
         <a class="header-link" href="">Home</a>
@@ -89,14 +95,13 @@ export default {
     if(this.apiUrl){
       axios.get(this.apiUrl)
       .then(function (response) {
-        console.log(response)
         that.loaded = true;
         that.featureApiData = response.data
         localStorage.setItem('apiUrl', that.apiUrl)
         localStorage.setItem('featureApiData', JSON.stringify(response.data))
       })
       .catch(function (error) {
-        console.log(error);
+        that.error = error
       });
     }
   },
@@ -109,8 +114,7 @@ export default {
         window.location.reload()
       })
       .catch(function (error) {
-        that.error = error.message
-        console.log(error);
+        that.error = error
       });
     },
     loadDefaultApi(){

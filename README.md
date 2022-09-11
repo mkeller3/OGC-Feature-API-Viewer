@@ -1,6 +1,12 @@
-# [ogc_feature_api_viewer](https://mkeller3.github.io/OGC-Feature-API-Viewer/)
+# [OGC Feature API Viewer](https://mkeller3.github.io/OGC-Feature-API-Viewer/)
 
-## Project setup
+## Description
+
+An application to visually browse OGC Feature API endpoints.
+
+## Running Locally
+
+### Project setup
 ```
 npm install
 ```
