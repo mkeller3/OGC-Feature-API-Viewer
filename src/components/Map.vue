@@ -47,6 +47,7 @@ export default {
 
         this.map.addControl(new maplibregl.NavigationControl());
         this.map.addControl(new maplibregl.ScaleControl());
+        this.map.addControl(new maplibregl.FullscreenControl());
 
         this.map.on('load', function () {
             that.map.addSource('geojson', {
