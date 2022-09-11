@@ -4,4 +4,7 @@ module.exports = defineConfig({
     'vuetify'
   ],
   publicPath: process.env.NODE_ENV === "production" ? "/OGC-Feature-API-Viewer/" : "/",
+  baseUrl: process.env.NODE_ENV === 'production'
+    ? '/OGC-Feature-API-Viewer'
+    : '/'
 })
