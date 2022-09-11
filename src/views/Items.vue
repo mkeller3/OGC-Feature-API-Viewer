@@ -30,7 +30,7 @@
                     v-for="item in items.features"
                     :key="item.id"
                   >
-                    <td><a :href="`/collections/${collection.id}/items/${item.id}/`">{{item.id}}</a></td>
+                    <td><a :href="`${item.id}/`">{{item.id}}</a></td>
                     <td
                       v-for="prop in item.properties"
                       v-bind:key="prop"

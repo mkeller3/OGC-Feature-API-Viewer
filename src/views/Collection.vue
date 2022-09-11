@@ -13,7 +13,7 @@
               <v-btn
                 color="accent"
                 text
-                :href="`/collections/${collection.id}/items/`"
+                :href="`items/`"
               >
                 Browse through the items of {{collection.title}}
               </v-btn>
@@ -25,7 +25,7 @@
               <v-btn
                 color="accent"
                 text
-                :href="`/collections/${collection.id}/queryables/`"
+                :href="`queryables/`"
               >
                 Browse through the queryables of {{collection.title}}
               </v-btn>

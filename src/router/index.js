@@ -5,27 +5,27 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/OGC-Feature-API-Viewer/',
     name: 'home',
     component: () => import('../views/Home.vue')
   },
   {
-    path: '/collections/',
+    path: '/OGC-Feature-API-Viewer/collections/',
     name: 'collections',
     component: () => import('../views/Collections.vue')
   },
   {
-    path: '/collections/:collection_id/',
+    path: '/OGC-Feature-API-Viewer/collections/:collection_id/',
     name: 'collection',
     component: () => import('../views/Collection.vue')
   },
   {
-    path: '/collections/:collection_id/items/',
+    path: '/OGC-Feature-API-Viewer/collections/:collection_id/items/',
     name: 'items',
     component: () => import('../views/Items.vue')
   },
   {
-    path: '/collections/:collection_id/items/:id/',
+    path: '/OGC-Feature-API-Viewer/collections/:collection_id/items/:id/',
     name: 'item',
     component: () => import('../views/Item.vue')
   }

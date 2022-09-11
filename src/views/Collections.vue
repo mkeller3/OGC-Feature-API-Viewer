@@ -22,7 +22,7 @@
             :search="search"
           >
             <template v-slot:[`item.title`]="{ item }">
-              <a :href="'/collections/'+item.id+'/'">{{item.title}}</a>
+              <a :href="item.id+'/'">{{item.title}}</a>
             </template>
           </v-data-table>
         </v-card>

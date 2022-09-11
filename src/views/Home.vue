@@ -13,7 +13,7 @@
               <v-btn
                 color="accent"
                 text
-                href="/collections/"
+                href="collections/"
               >
                 View the collections in this service
               </v-btn>
