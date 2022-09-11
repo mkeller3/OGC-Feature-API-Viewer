@@ -1,20 +1,19 @@
-  name: Deploy to Github Pages
-  on:
-    push:
-      branches:
-        - main
-  jobs:
-    gh-pages-deploy:
-      name: Deploying to Github Pages
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
-            with:
-              node-version: '12'
-          - name: Install packages
-            run: npm i
-          - name: Set Creds
-            run: git config user.name "<username>" && git config user.email "<email>"
-          - name: Deploy
-            run: npm run deploy
+name: Build Vue
+on: [push]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js '16.x'
+      uses: actions/setup-node@v2
+      with:
+        node-version: "16.x"
+        cache: "npm"
+    - id: Build-Vue
+      uses: SerhiiKa/VuePagesAction@1.0.4
+      with:
+        username: 'mkeller3'
+        reponame: 'OGC-Feature-API-Viewer'
+        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
