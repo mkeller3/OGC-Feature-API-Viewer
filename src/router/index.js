@@ -28,6 +28,11 @@ const routes = [
     path: '/OGC-Feature-API-Viewer/collections/:collection_id/items/:id/',
     name: 'item',
     component: () => import('../views/Item.vue')
+  },
+  {
+    path: '/OGC-Feature-API-Viewer/collections/:collection_id/queryables/',
+    name: 'queryables',
+    component: () => import('../views/Queryables.vue')
   }
 ]
 

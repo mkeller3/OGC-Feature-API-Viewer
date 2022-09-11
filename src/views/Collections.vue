@@ -1,6 +1,10 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row v-if="loaded">
+      <v-col cols="12" class="mx-0 my-0" style="background-color: #e2d4b7">
+        <a class="header-link" href="/OGC-Feature-API-Viewer/">Home</a> /
+        <a class="header-link" href="collections/">Collections</a>
+      </v-col>
       <v-col cols="12">
         <h1>Collections</h1>
         <v-divider/>
@@ -72,3 +76,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+.header-link:visited {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.header-link{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+</style>

@@ -1,6 +1,12 @@
 <template>
   <v-container>
     <v-row v-if="loaded">
+      <v-col cols="12" class="mx-0 my-0" style="background-color: #e2d4b7">
+        <a class="header-link" href="">Home</a> /
+        <a class="header-link" href="/OGC-Feature-API-Viewer/collections/">Collections</a> /
+        <a class="header-link" :href="'/OGC-Feature-API-Viewer/collections/'+collection.id+'/'">{{collection.title}}</a> /
+        <a class="header-link" href="">Items</a>
+      </v-col>
       <v-col cols="12">
         <h1>{{collection.title}}</h1>
         <v-divider/>
@@ -106,6 +112,15 @@ export default {
 
 .v-card{
   margin: 2rem;
+}
+
+.header-link:visited {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.header-link{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 </style>

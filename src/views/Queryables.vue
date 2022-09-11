@@ -5,39 +5,35 @@
         <a class="header-link" href="/OGC-Feature-API-Viewer/">Home</a> /
         <a class="header-link" href="/OGC-Feature-API-Viewer/collections/">Collections</a> /
         <a class="header-link" :href="'/OGC-Feature-API-Viewer/collections/'+collection.id+'/'">{{collection.title}}</a> /
-        <a class="header-link" :href="'/OGC-Feature-API-Viewer/collections/'+collection.id+'/items/'">Items</a> /
-        <a class="header-link" href="">Item {{$route.params.id}}</a>
+        <a class="header-link" href="">Queryables</a>
       </v-col>
       <v-col cols="12">
-        <h1>Item {{$route.params.id}}</h1>
+        <h1>{{collection.title}}</h1>
+        <v-divider/>
+        <h4>Queryables</h4>
       </v-col>
       <v-col cols="12">
-        <v-row>
-          <v-col cols="12" lg="6">
-            <Map :geojson="item"/>
-          </v-col>
-          <v-col cols="12" lg="6">
-            <v-simple-table height="40vh">
-              <template v-slot:default>
-                <thead>
-                  <tr>
-                    <th>Property</th>
-                    <th>Value</th>          
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="value, key in item.properties"
-                    :key="key"
-                  >
-                    <td>{{key}}</td>
-                    <td>{{value}}</td>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
-          </v-col>
-        </v-row>        
+        <v-card>
+          <v-list>      
+            <v-list-item-group
+              v-for="value, key in queryables.properties"
+              :key="key"
+            >
+              <v-list-item
+                v-if="value.$ref == undefined"              
+              >
+                <v-list-item-content>
+                  <v-list-item-title>{{value.title}} ({{value.type}})</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item v-else>
+                <v-list-item-content>
+                  <v-list-item-title><a :href="value.$ref">{{key}}</a></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -45,19 +41,15 @@
 
 <script>
 import axios from 'axios';
-import Map from '@/components/Map.vue';
 
 export default {
-  name: "HomeView",
-  components: { 
-    Map 
-  },
+  name: "QueryablesView",
   data: () => ({
     featureApiData: JSON.parse(localStorage.getItem('featureApiData')),
     loaded: false,
     collectionUrl: undefined,
     collection: {},
-    item: {}
+    queryables: {}
 }),
   mounted() {
     const that = this;
@@ -68,12 +60,11 @@ export default {
     })
     axios.get(`${this.collectionUrl}/${that.$route.params.collection_id}`)
     .then(function (response) {
-      that.collection = response.data;
-
-      axios.get(`${that.collectionUrl}/${that.$route.params.collection_id}/items/${that.$route.params.id}`)
+      that.collection = response.data;     
+      axios.get(`${that.collectionUrl}/${that.$route.params.collection_id}/queryables`)
       .then(function (response) {
-        that.loaded = true;
-        that.item = response.data
+        that.loaded = true
+        that.queryables = response.data;     
       })
       .catch(function (error) {
         console.log(error);
