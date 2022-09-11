@@ -1,5 +1,5 @@
 <template>
-  <div id="map" style="height: 70vh"></div>
+  <div id="map" style="height: 40vh"></div>
 </template>
 
 <script>
