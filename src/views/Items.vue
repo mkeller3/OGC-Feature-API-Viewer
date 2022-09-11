@@ -47,7 +47,7 @@
                 </tbody>
               </template>
             </v-simple-table>
-            <p>Number of Items: {{items.numberMatched.toLocaleString()}}</p>
+            <p v-if="items.numberMatched">Number of Items: {{items.numberMatched.toLocaleString()}}</p>
           </v-col>
         </v-row>
       </v-col>
