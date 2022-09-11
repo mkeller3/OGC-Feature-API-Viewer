@@ -1,4 +1,4 @@
-# vue_template
+# ogc_feature_api_viewer
 
 ## Project setup
 ```
