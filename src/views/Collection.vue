@@ -71,7 +71,7 @@ export default {
   mounted() {
     const that = this;
     this.featureApiData.links.forEach(link => {
-      if(link.type === 'application/json' && link.rel === 'data' && link.title.toLowerCase().includes('collection')){
+      if(link.rel === 'data' && link.href.toLowerCase().includes('collection')){
         this.collectionUrl = link.href
       }
     })
