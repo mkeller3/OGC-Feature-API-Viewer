@@ -2,7 +2,7 @@
   <v-container>
     <v-row v-if="loaded">
       <v-col cols="12" class="mx-0 my-0" style="background-color: #e2d4b7">
-        <a class="header-link" href="">Home</a> /
+        <a class="header-link" href="/OGC-Feature-API-Viewer/">Home</a> /
         <a class="header-link" href="/OGC-Feature-API-Viewer/collections/">Collections</a> /
         <a class="header-link" :href="'/OGC-Feature-API-Viewer/collections/'+collection.id+'/'">{{collection.title}}</a> /
         <a class="header-link" href="">Items</a>
@@ -18,7 +18,7 @@
             <Map :geojson="items"/>
           </v-col>
           <v-col cols="12" lg="6">
-            <v-simple-table height="40vh">
+            <v-simple-table height="38vh">
               <template v-slot:default>
                 <thead>
                   <tr>
@@ -47,6 +47,7 @@
                 </tbody>
               </template>
             </v-simple-table>
+            <p>Number of Items: {{items.numberMatched.toLocaleString()}}</p>
           </v-col>
         </v-row>
       </v-col>
